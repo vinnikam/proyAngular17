@@ -1,0 +1,39 @@
+<h5 class="mb-5">Equipos</h5>
+<div class="text-end">
+  <button class="btn btn-primary" routerLink="/nuevo">Nuevo equipo</button>
+</div>
+<table class="table table-hovet">
+  <thead>
+  <tr>
+    <th scope="col">Serial</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Descripcion</th>
+    <th scope="col">Opciones</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for(dato of equipos; track dato.serial) {
+      <tr>
+        <td style="min-width:100px">{{dato.serial}}</td>
+        <td style="min-width:200px">{{dato.nombre}}</td>
+        <td style="min-width:100px">{{dato.descripcion}}</td>
+        <td class="text-end">
+          <div class="btn-group">
+            <button class="btn btn-primary" [routerLink]= "[dato.serial,'editar']" >Editar</button>
+            <button class="btn btn-danger" (click)="borrarEquipo(dato)" >Borrar</button>
+          </div>
+        </td>
+      </tr>
+    }
+  </tbody>
+
+</table>
+<section>
+  Iniciar con toda
+  Bienvenido <img alt="Vinni image" src="https://github.com/vinnikam.png"/>
+  @if(isActivo){
+  <p> Esta activo </p>
+  }@else {
+  <p> Noooo Esta activo </p>
+  }
+</section>
